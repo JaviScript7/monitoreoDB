@@ -3,9 +3,9 @@ import aiomysql
 import telegram
 from telegram import Bot
 
-# Configuración del bot de Telegram
-bot_token = '7235994071:AAHwepFa-FvVmz7Me4j9v4S399j_ERq-3I0'
-chat_id = '6045970195'
+# Configuración del bot de Telegram reemplaza API_TOKEN por tu TOKEN DEL BOT y ID_TOKEN por tu token de chat
+bot_token = 'API_TOKEN'
+chat_id = 'ID_TOKEN'
 bot = Bot(token=bot_token)
 
 # Variable para almacenar el último timestamp verificado
@@ -26,7 +26,7 @@ async def check_for_changes(pool):
 async def send_alert(row):
     message = f"🚨 Se ha detectado una modificación en la base de datos:🚨\n\n {row}"
     await bot.send_message(chat_id=chat_id, text=message)
-
+#Reemplaza los datos por los que son de tu base de datos
 async def main():
     pool = await aiomysql.create_pool(
         host='localhost',
